@@ -5,8 +5,8 @@
  * Pin configuration
  * This file was automatically generated and should not be modified.
  * Configurator Backend 3.70.0
- * device-db 4.34.0.9502
- * mtb-dsl-pse8xxgp 1.2.0.895
+ * device-db 4.35.0.9884
+ * mtb-dsl-pse8xxgp 1.3.0.950
  *
  *******************************************************************************
  * Copyright 2026 Cypress Semiconductor Corporation (an Infineon company) or
@@ -760,7 +760,7 @@ extern "C" {
 #define CYBSP_ETH_TX_CTL_NUM CYBSP_WIFI_HOST_WAKE_NUM
 #define CYBSP_WIFI_HOST_WAKE_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
 #define CYBSP_ETH_TX_CTL_DRIVEMODE CYBSP_WIFI_HOST_WAKE_DRIVEMODE
-#define CYBSP_WIFI_HOST_WAKE_INIT_DRIVESTATE 0
+#define CYBSP_WIFI_HOST_WAKE_INIT_DRIVESTATE 1
 #define CYBSP_ETH_TX_CTL_INIT_DRIVESTATE CYBSP_WIFI_HOST_WAKE_INIT_DRIVESTATE
 #ifndef ioss_0_port_11_pin_4_HSIOM
     #define ioss_0_port_11_pin_4_HSIOM HSIOM_SEL_GPIO

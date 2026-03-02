@@ -5,8 +5,8 @@
  * Analog configuration
  * This file was automatically generated and should not be modified.
  * Configurator Backend 3.70.0
- * device-db 4.34.0.9502
- * mtb-dsl-pse8xxgp 1.2.0.895
+ * device-db 4.35.0.9884
+ * mtb-dsl-pse8xxgp 1.3.0.950
  *
  *******************************************************************************
  * Copyright 2026 Cypress Semiconductor Corporation (an Infineon company) or
@@ -644,7 +644,7 @@ const cy_stc_scb_spi_config_t scb_10_config =
 {
     .spiMode = CY_SCB_SPI_MASTER,
     .subMode = CY_SCB_SPI_MOTOROLA,
-    .sclkMode = CY_SCB_SPI_CPHA0_CPOL0,
+    .sclkMode = CY_SCB_SPI_CPHA1_CPOL1,
     .parity = CY_SCB_SPI_PARITY_NONE,
     .dropOnParityError = false,
     .oversample = 10,

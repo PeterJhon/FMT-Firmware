@@ -140,10 +140,10 @@ static rt_err_t spi_configure(struct rt_spi_device* device, struct rt_spi_config
         spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA0_CPOL0;
         break;
     case RT_SPI_MODE_1:
-        spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA0_CPOL1;
+        spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA1_CPOL0;
         break;
     case RT_SPI_MODE_2:
-        spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA1_CPOL0;
+        spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA0_CPOL1;
         break;
     case RT_SPI_MODE_3:
         spi->runtime_cfg.sclkMode = CY_SCB_SPI_CPHA1_CPOL1;
@@ -167,23 +167,45 @@ static rt_uint32_t spixfer(struct rt_spi_device* device, struct rt_spi_message* 
         pin_dev->write(pin_dev, 0, &pin_sta, sizeof(pin_sta));
     }
 
-    if (message->length > 0) {
-        const void* tx_buf = message->send_buf;
-        void* rx_buf = message->recv_buf;
-        size_t len = message->length;
-        uint8_t dummy_fill = 0x00; 
-        if (mtb_hal_spi_transfer(spi->spi_obj,
-                                 tx_buf ? tx_buf : &dummy_fill,
-                                 len,
-                                 rx_buf,
-                                 rx_buf ? len : 0,
-                                 dummy_fill)
-            == CY_RSLT_SUCCESS) {
-            rt_completion_wait(&spi->cpt, RT_WAITING_FOREVER);
-        } else {
-            result = -RT_ERROR;
+    if (message->length > 0)
+    {
+        if (message->send_buf == RT_NULL && message->recv_buf != RT_NULL)
+        {
+            /**< receive message */
+            result = mtb_hal_spi_transfer(spi->spi_obj, RT_NULL, 0x00, message->recv_buf, message->length, 0x00);
         }
+        else if (message->send_buf != RT_NULL && message->recv_buf == RT_NULL)
+        {
+            /**< send message */
+            result = mtb_hal_spi_transfer(spi->spi_obj, message->send_buf, message->length, RT_NULL, 0x00, 0x00);
+        }
+        else if (message->send_buf != RT_NULL && message->recv_buf != RT_NULL)
+        {
+            /**< send and receive message */
+            result = mtb_hal_spi_transfer(spi->spi_obj, message->send_buf, message->length, message->recv_buf, message->length, 0x00);
+        }
+
+        /* blocking the thread,and the other tasks can run */
+        rt_completion_wait(&spi->cpt, RT_WAITING_FOREVER);
     }
+
+    // if (message->length > 0) {
+    //     const void* tx_buf = message->send_buf;
+    //     void* rx_buf = message->recv_buf;
+    //     size_t len = message->length;
+    //     uint8_t dummy_fill = 0xFF; 
+    //     if (mtb_hal_spi_transfer(spi->spi_obj,
+    //                              tx_buf ? tx_buf : &dummy_fill,
+    //                              len,
+    //                              rx_buf,
+    //                              rx_buf ? len : 0,
+    //                              dummy_fill)
+    //         == CY_RSLT_SUCCESS) {
+    //         rt_completion_wait(&spi->cpt, RT_WAITING_FOREVER);
+    //     } else {
+    //         result = -RT_ERROR;
+    //     }
+    // }
 
     if (message->cs_release && !(device->config.mode & RT_SPI_NO_CS)) {
         struct device_pin_status pin_sta = { spi->cs_pin, (device->config.mode & RT_SPI_CS_HIGH) ? PIN_LOW : PIN_HIGH };
@@ -197,7 +219,7 @@ static const struct rt_spi_ops ifx_spi_ops = {
     .configure = spi_configure,
     .xfer = spixfer,
 };
-
+static struct rt_spi_device spi1_dev;
 rt_err_t drv_spi_init(void)
 {
     for (int i = 0; i < sizeof(ifx_spi_obj) / sizeof(ifx_spi_obj[0]); i++) {
@@ -207,5 +229,6 @@ rt_err_t drv_spi_init(void)
             rt_spi_bus_register(&obj->spi_bus, obj->name, &ifx_spi_ops);
         }
     }
+     rt_spi_bus_attach_device(&spi1_dev, "spi1_dev1", "spi1", (void*)GET_PIN(16,3));
     return RT_EOK;
 }

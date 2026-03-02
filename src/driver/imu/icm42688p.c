@@ -19,7 +19,7 @@
 #include "hal/gyro/gyro.h"
 #include "hal/spi/spi.h"
 
-#define DRV_DBG(...)
+#define DRV_DBG(...) rt_kprintf(__VA_ARGS__)
 
 #ifdef BIT
     #undef BIT
@@ -336,6 +336,9 @@ static rt_err_t low_level_init(void)
     /* init spi bus */
     RT_TRY(rt_device_open(spi_dev, RT_DEVICE_OFLAG_RDWR));
 
+    // RT_TRY(spi_write_reg8(spi_dev, 0x76, 0x00));
+    // RT_TRY(spi_write_reg8(spi_dev, 0x11, 0x01));
+    rt_thread_mdelay(100);
     /* chip probe */
     RT_TRY(spi_read_reg8(spi_dev, REG_WHO_AM_I, &dev_id));
     if (dev_id != DEVICE_ID) {

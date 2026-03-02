@@ -2943,7 +2943,7 @@
                         <Param id="Parity" value="CY_SCB_SPI_PARITY_NONE"/>
                         <Param id="RxDataWidth" value="8"/>
                         <Param id="RxTriggerLevel" value="63"/>
-                        <Param id="SclkModeUser" value="CY_SCB_SPI_CPHA0_CPOL0"/>
+                        <Param id="SclkModeUser" value="CY_SCB_SPI_CPHA1_CPOL1"/>
                         <Param id="SetupDelay" value="false"/>
                         <Param id="Ss0Polarity" value="CY_SCB_SPI_ACTIVE_LOW"/>
                         <Param id="Ss1Polarity" value="CY_SCB_SPI_ACTIVE_LOW"/>
@@ -4238,10 +4238,6 @@
                     <Port name="scb[10].spi_miso[0]"/>
                 </Net>
                 <Net>
-                    <Port name="ioss[0].port[16].pin[3].digital_inout[0]"/>
-                    <Port name="scb[10].spi_select0[0]"/>
-                </Net>
-                <Net>
                     <Port name="ioss[0].port[16].pin[5].digital_out[0]"/>
                     <Port name="tcpwm[0].group[0].cnt[5].line[0]"/>
                 </Net>
@@ -4284,10 +4280,6 @@
                 <Net>
                     <Port name="ioss[0].port[21].pin[3].digital_inout[0]"/>
                     <Port name="tdm[0].tdm[0].tdm_tx_mck[0]"/>
-                </Net>
-                <Net>
-                    <Port name="m33syscpuss[0].dw0[0].chan[1].tr_in[0]"/>
-                    <Port name="scb[10].tr_tx_req[0]"/>
                 </Net>
                 <Net>
                     <Port name="pdm[0].clk_if_srss[0]"/>
