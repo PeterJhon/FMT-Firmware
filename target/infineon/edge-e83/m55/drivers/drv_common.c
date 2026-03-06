@@ -28,6 +28,7 @@
 #include "drv_sdio.h"
 #include "drv_spi.h"
 #include "drv_eth.h"
+#include "drv_canfd.h"
 #include "drv_usbd_cdc.h"
 #include "model/control/control_interface.h"
 #include "model/fms/fms_interface.h"
@@ -110,13 +111,13 @@ void bsp_early_initialize(void)
     RT_CHECK(drv_i2c_init());
     
     /* spi driver init */
-    RT_CHECK(drv_spi_init());
+    // RT_CHECK(drv_spi_init());
 
     // /* pwm driver init */
     // RT_CHECK(drv_pwm_init());
 
-    // /* can driver init */
-    // RT_CHECK(drv_fdcan_init());
+    /* canfd driver init */
+    RT_CHECK(drv_fdcan_init());
 
     // /* init remote controller driver */
     // RT_CHECK(drv_rc_init());

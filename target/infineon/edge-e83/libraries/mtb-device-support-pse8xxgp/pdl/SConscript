@@ -112,7 +112,7 @@ if GetDepend(['BSP_USING_HYPERAM']) or GetDepend(['BSP_USING_FLASH']):
     src += ['drivers/source/cy_smif_sfdp.c']
     src += ['drivers/source/cy_smif_memnum.c']
 
-if GetDepend(['RT_USING_WDT']):
+if GetDepend(['RT_USING_WDT']) or GetDepend(['BSP_USING_CANFD0']) or GetDepend(['BSP_USING_CANFD1']):
     src += ['drivers/source/cy_wdt.c']
 
 if GetDepend(['RT_USING_HWTIMER']):
@@ -121,6 +121,9 @@ if GetDepend(['RT_USING_HWTIMER']):
 if GetDepend(['RT_USING_AUDIO']):
     src += ['drivers/source/cy_tdm.c']
     src += ['drivers/source/cy_pdm_pcm_v2.c']
+
+if GetDepend(['BSP_USING_CANFD0']) or GetDepend(['BSP_USING_CANFD1']):
+    src += ['drivers/source/cy_canfd.c']
 
 if GetDepend(['SOC_SERIES_IFX_PSOCE84']):
     path += [cwd + '/devices/include']

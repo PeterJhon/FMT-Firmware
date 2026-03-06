@@ -231,6 +231,7 @@
 #define BSP_USING_UART2
 #define BSP_USING_SPI1
 #define BSP_USING_HW_I2C0
+#define BSP_USING_CANFD0
 // #define BSP_USING_UART5
 /* end of On-chip Peripheral Drivers */
 /* end of Hardware Drivers Config */

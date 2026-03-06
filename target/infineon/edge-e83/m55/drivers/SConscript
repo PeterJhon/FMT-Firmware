@@ -13,9 +13,10 @@ src += ['drv_gpio.c']
 src += ['drv_uart.c']
 src += ['drv_systick.c']
 src += ['drv_i2c.c']
-src += ['drv_spi.c']
+# src += ['drv_spi.c']
 src += ['drv_sdio.c']
 src += ['drv_usbd_cdc.c']
+src += ['drv_canfd.c']
 
 if GetDepend('BSP_USING_ETH'):
 	src += ['drv_eth.c']

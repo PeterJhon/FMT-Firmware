@@ -4,8 +4,8 @@
  * Description:
  * Pin configuration
  * This file was automatically generated and should not be modified.
- * Configurator Backend 3.60.0
- * device-db 4.35.0.9884
+ * Configurator Backend 3.70.0
+ * device-db 4.34.0.9502
  * mtb-dsl-pse8xxgp 1.2.0.895
  *
  *******************************************************************************
@@ -988,7 +988,7 @@ extern "C" {
 #define CYBSP_SPI_CLK_PORT_NUM 16U
 #define CYBSP_SPI_CLK_PIN 0U
 #define CYBSP_SPI_CLK_NUM 0U
-#define CYBSP_SPI_CLK_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
+#define CYBSP_SPI_CLK_DRIVEMODE CY_GPIO_DM_HIGHZ
 #define CYBSP_SPI_CLK_INIT_DRIVESTATE 1
 #ifndef ioss_0_port_16_pin_0_HSIOM
     #define ioss_0_port_16_pin_0_HSIOM HSIOM_SEL_GPIO
@@ -1000,37 +1000,13 @@ extern "C" {
 #define CYBSP_SPI_MOSI_PORT_NUM 16U
 #define CYBSP_SPI_MOSI_PIN 1U
 #define CYBSP_SPI_MOSI_NUM 1U
-#define CYBSP_SPI_MOSI_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
+#define CYBSP_SPI_MOSI_DRIVEMODE CY_GPIO_DM_STRONG
 #define CYBSP_SPI_MOSI_INIT_DRIVESTATE 1
 #ifndef ioss_0_port_16_pin_1_HSIOM
     #define ioss_0_port_16_pin_1_HSIOM HSIOM_SEL_GPIO
 #endif
 #define CYBSP_SPI_MOSI_HSIOM ioss_0_port_16_pin_1_HSIOM
 #define CYBSP_SPI_MOSI_IRQ ioss_interrupts_gpio_16_IRQn
-#define CYBSP_SPI_MISO_ENABLED 1U
-#define CYBSP_SPI_MISO_PORT GPIO_PRT16
-#define CYBSP_SPI_MISO_PORT_NUM 16U
-#define CYBSP_SPI_MISO_PIN 2U
-#define CYBSP_SPI_MISO_NUM 2U
-#define CYBSP_SPI_MISO_DRIVEMODE CY_GPIO_DM_HIGHZ
-#define CYBSP_SPI_MISO_INIT_DRIVESTATE 1
-#ifndef ioss_0_port_16_pin_2_HSIOM
-    #define ioss_0_port_16_pin_2_HSIOM HSIOM_SEL_GPIO
-#endif
-#define CYBSP_SPI_MISO_HSIOM ioss_0_port_16_pin_2_HSIOM
-#define CYBSP_SPI_MISO_IRQ ioss_interrupts_gpio_16_IRQn
-#define CYBSP_SPI_CS_ENABLED 1U
-#define CYBSP_SPI_CS_PORT GPIO_PRT16
-#define CYBSP_SPI_CS_PORT_NUM 16U
-#define CYBSP_SPI_CS_PIN 3U
-#define CYBSP_SPI_CS_NUM 3U
-#define CYBSP_SPI_CS_DRIVEMODE CY_GPIO_DM_STRONG_IN_OFF
-#define CYBSP_SPI_CS_INIT_DRIVESTATE 1
-#ifndef ioss_0_port_16_pin_3_HSIOM
-    #define ioss_0_port_16_pin_3_HSIOM HSIOM_SEL_GPIO
-#endif
-#define CYBSP_SPI_CS_HSIOM ioss_0_port_16_pin_3_HSIOM
-#define CYBSP_SPI_CS_IRQ ioss_interrupts_gpio_16_IRQn
 #define ioss_0_port_16_pin_5_ENABLED 1U
 #define ioss_0_port_16_pin_5_PORT GPIO_PRT16
 #define ioss_0_port_16_pin_5_PORT_NUM 16U
@@ -1372,8 +1348,6 @@ extern const cy_stc_gpio_pin_config_t CYBSP_ARD_D8_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_ADC_6_POT_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_SPI_CLK_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_SPI_MOSI_config;
-extern const cy_stc_gpio_pin_config_t CYBSP_SPI_MISO_config;
-extern const cy_stc_gpio_pin_config_t CYBSP_SPI_CS_config;
 extern const cy_stc_gpio_pin_config_t ioss_0_port_16_pin_5_config;
 extern const cy_stc_gpio_pin_config_t CYBSP_USER_LED2_config;
 

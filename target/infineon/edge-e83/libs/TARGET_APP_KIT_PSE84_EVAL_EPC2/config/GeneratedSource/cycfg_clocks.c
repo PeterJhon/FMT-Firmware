@@ -4,8 +4,8 @@
  * Description:
  * Clock configuration
  * This file was automatically generated and should not be modified.
- * Configurator Backend 3.60.0
- * device-db 4.35.0.9884
+ * Configurator Backend 3.70.0
+ * device-db 4.34.0.9502
  * mtb-dsl-pse8xxgp 1.2.0.895
  *
  *******************************************************************************
@@ -150,8 +150,8 @@
 #define CY_CFG_SYSCLK_CLKHF9_CLKPATH CY_SYSCLK_CLKHF_IN_CLKPATH0
 #define CY_CFG_SYSCLK_CLKHF9_CLKPATH_NUM 0UL
 #define CY_CFG_SYSCLK_CLKHF10_ENABLED 1
-#define CY_CFG_SYSCLK_CLKHF10_DIVIDER CY_SYSCLK_CLKHF_DIVIDE_BY_4
-#define CY_CFG_SYSCLK_CLKHF10_FREQ_MHZ 100UL
+#define CY_CFG_SYSCLK_CLKHF10_DIVIDER CY_SYSCLK_CLKHF_DIVIDE_BY_5
+#define CY_CFG_SYSCLK_CLKHF10_FREQ_MHZ 80UL
 #define CY_CFG_SYSCLK_CLKHF10_CLKPATH CY_SYSCLK_CLKHF_IN_CLKPATH0
 #define CY_CFG_SYSCLK_CLKHF10_CLKPATH_NUM 0UL
 #define CY_CFG_SYSCLK_CLKHF11_ENABLED 1
